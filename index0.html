@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Vindis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* Import font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap');
+
+/* Palet Warna Tema Gelap */
+:root {
+    --primary-color: #f9eda8; /* Aksen hijau tosca */
+    --secondary-color: #05788d; /* Aksen oranye */
+    --text-light: #EEEEEE;
+    --text-dark: #222831; /* Abu-abu tua */
+    --bg-main: #393E46; /* Abu-abu sedang */
+    --bg-darker: #222831;
+    --card-bg: #323A40;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+}
+
+/* Reset dan styling dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Header & Navigasi */
+.header {
+    background-color: var(--bg-darker);
+    box-shadow: 0 2px 10px var(--shadow-medium);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Bagian Konten Umum */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-light);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Hero Section (dengan Foto Profil) */
+.hero-section {
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-main) 100%);
+    color: var(--text-light);
+    padding: 6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin: 0 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--bg-darker);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 2.5rem;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+/* About Section */
+.about-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    text-align: left;
+}
+.about-section .section-content {
+    text-align: center;
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: var(--bg-main);
+    padding-bottom: 5rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.skill-item i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.skill-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+}
+
+.skill-item p {
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: var(--bg-main);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #444;
+}
+
+.project-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    padding: 1.2rem 1.5rem 0.5rem;
+    color: var(--text-light);
+}
+
+.project-card p {
+    padding: 0 1.5rem 1rem;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.5rem 1.5rem 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.project-link i {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(45deg, var(--bg-darker) 0%, #3a5c7f 100%);
+    color: var(--text-light);
+    padding: 5rem 1rem;
+}
+
+.contact-section h2 {
+    color: var(--text-light);
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--bg-darker);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    margin: 0.5rem 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.contact-button i {
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.contact-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-darker);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.footer i {
+    color: var(--secondary-color);
+    margin: 0 0.3rem;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+    }
+    .nav-links {
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0.5rem 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .tagline {
+        font-size: 1.2rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-button {
+        display: block;
+        margin: 1rem auto;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+    .social-links a {
+        font-size: 1.5rem;
+        margin: 0 0.6rem;
+    }
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .section-content {
+        padding: 0 1rem;
+    }
+}
+</style>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="#home" class="logo">Vindis</a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <img src="ft (4).jpg" alt="Foto Profil Anda" class="profile-pic">
+                <h1>Halo, Saya seorang siswi SMK Negeri 8 Malang</h1>
+                <p class="tagline">Siswi RPL yang bersemangat mempelajari dunia teknologi, dengan kreativitas yang juga dituangkan lewat hobi memasak dan mencoba resep baru.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/qr/I6L27VQNFDKHH1 " target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@vdddds99?_t=ZS-8zve8wLDMX9&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/_vindiiss?igsh=MTQ3bzk3NDNxMTB6ZA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="#projects" class="cta-button">Lihat Proyek Saya</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-content">
+                <h2>Tentang Saya</h2>
+                <p>Saya siswa SMK jurusan Rekayasa Perangkat Lunak yang sedang belajar dasar teknologi dengan semangat dan rasa ingin tahu tinggi.</p>
+                <p>Di luar bidang RPL, saya hobi memasak dan bereksperimen dengan resep baru sebagai cara menyalurkan kreativitas dan melatih ketelitian.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="section-content">
+                <h2>Keahlian Saya</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <h3>Pengembangan Web</h3>
+                        <p>HTML, CSS, JavaScript, React, Node.js</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-palette"></i>
+                        <h3>Desain Grafis</h3>
+                        <p>Adobe Photoshop, Illustrator, Figma, UI/UX</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Pengalaman kerja kelompok</h3>
+                        <p>promosi coding, mulai dari perencanaan, pembagian tugas, hingga presentasi hasil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="section-content">
+                <h2>Proyek Terbaru</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="fff.webp" alt="Proyek A">
+                        <h3>Portofolio</h3>
+                        <p>Website pribadi yang berfungsi sebagai wadah dokumentasi karya dan aktivitas belajar.</p>
+                        <a href="#" class="project-link" target="_blank">Lihat Proyek <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="project-card">
+                        <img src="bb.png" alt="Proyek B">
+                        <h3>Figma</h3>
+                        <p>Merancang tampilan aplikasi bank di Figma dengan fitur akun, transaksi, dan riwayat.</p>
+                        <a href="#" class="project-link" target="_blank">Lihat Proyek <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="project-card">
+                        <img src="kalkulatorrr.jpg" alt="Proyek C">
+                        <h3>App Calculator</h3>
+                        <p>App kalkulator sederhana sebagai dasar belajar coding dan desain aplikasi.</p>
+                        <a href="#" class="project-link" target="_blank">Lihat Proyek <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-content">
+                <h2>Mari Terhubung!</h2>
+                <p>Saya selalu terbuka untuk kolaborasi atau sekadar berbagi ide. Jangan ragu untuk menghubungi saya!</p>
+                <a href="mailto:email@contoh.com" class="contact-button"><i class="fas fa-envelope"></i> Kirim Email</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
